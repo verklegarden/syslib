@@ -1,6 +1,6 @@
 <div align="center">
 
-<h1>`syslib`</h1>
+<h1>syslib</h1>
 
 <a href="">[![Tests][tests-shield]][tests-shield-url]</a>
 <a href="">![Apache2/MIT licensed][license-shield]</a>
