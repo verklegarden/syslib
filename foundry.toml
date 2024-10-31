@@ -2,5 +2,26 @@
 src = "src"
 out = "out"
 libs = ["lib"]
+ffi = true # Enabled to allow differential fuzz testing
 
-# See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
+# Compilation
+evm_version = "shanghai"
+solc_version = "0.8.28"
+via_ir = false
+optimizer = false
+extra_output_files = ["irOptimized"]
+
+[fmt]
+line_length = 80
+int_types = "short"
+number_underscore = "preserve"
+
+# Profile for ci testing
+# Run via `FOUNDRY_PROFILE=ci forge t`
+[profile.ci]
+via_ir = true
+optimizer = true
+optimizer_runs = 100_000
+[profile.ci.fuzz]
+runs = 10_000
+max_test_rejects = 4_294_967_295

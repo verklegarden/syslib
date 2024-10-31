@@ -1,66 +1,57 @@
-## Foundry
+<div align="center">
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+<h1>`syslib`</h1>
 
-Foundry consists of:
+<a href="">[![Tests][tests-shield]][tests-shield-url]</a>
+<a href="">![Apache2/MIT licensed][license-shield]</a>
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+</div>
 
-## Documentation
+Solidity libraries to interact with Ethereum system contracts.
 
-https://book.getfoundry.sh/
+## Libraries
 
-## Usage
-
-### Build
-
-```shell
-$ forge build
+```ml
+src
+├─ BeaconRoots - "Library for the EIP-4788 beacon roots system contract"
+├─ ExecutionHashes - "Library for the EIP-2935 execution hashes system contract"
+├─ Withdrawals - "Library for the EIP-7002 withdrawals system contract"
+└─ Consolidations - "Library for the EIP-7251 consolidations system contract"
 ```
 
-### Test
+## Installation
 
-```shell
-$ forge test
+Install with [Foundry](https://getfoundry.sh/):
+
+```bash
+$ forge install verklegarden/syslib
 ```
 
-### Format
+## Contributing
 
-```shell
-$ forge fmt
+The project uses the Foundry toolchain. You can find installation instructions [here](https://getfoundry.sh/).
+
+Setup:
+
+```bash
+$ git clone https://github.com/verklegarden/syslib
+$ cd syslib/
+$ forge install
 ```
 
-### Gas Snapshots
+## Safety
 
-```shell
-$ forge snapshot
-```
+This is **experimental software** and is provided on an "as is" and "as available" basis.
 
-### Anvil
+We **do not give any warranties** and **will not be liable** for any loss incurred through any use of this codebase.
 
-```shell
-$ anvil
-```
+## License
 
-### Deploy
+Licensed under either of <a href="LICENSE-APACHE">Apache License, Version 2.0</a> or <a href="LICENSE-MIT">MIT license</a> at your option.
 
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
+Unless you explicitly state otherwise, any contribution intentionally submitted for inclusion by you, as defined in the Apache-2.0 license, shall be dual licensed as above, without any additional terms or conditions.
 
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+<!--- Shields -->
+[tests-shield]: https://github.com/verklegarden/syslib/actions/workflows/ci.yml/badge.svg
+[tests-shield-url]: https://github.com/verklegarden/syslib/actions/workflows/ci.yml
+[license-shield]: https://img.shields.io/badge/license-Apache2.0/MIT-blue.svg
