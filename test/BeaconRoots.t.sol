@@ -9,12 +9,13 @@ import {BeaconRoots} from "../src/BeaconRoots.sol";
 import {Geas} from "../script/Geas.sol";
 
 contract BeaconRootsTest is Test {
-    uint constant RING_BUFFER_SIZE = 8191;
+    uint constant BUFFER_SIZE = 8191;
 
     function setUp() public {
-        bytes memory code = Geas.compile("lib/sys-asm/src/beacon_root/main.eas");
-
-        vm.etch(BeaconRoots.SYSTEM_CONTRACT, code);
+        vm.etch(
+            BeaconRoots.SYSTEM_CONTRACT,
+            Geas.compile("lib/sys-asm/src/beacon_root/main.eas")
+        );
     }
 
     function testFuzz_tryGet() public {
@@ -24,4 +25,6 @@ contract BeaconRootsTest is Test {
     function testFuzz_get() public {
         vm.skip(true);
     }
+
+    // -- Private Helpers --
 }

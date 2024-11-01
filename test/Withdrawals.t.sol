@@ -13,9 +13,10 @@ contract WithdrawalsTest is Test {
     uint constant INHIBITOR = type(uint).max;
 
     function setUp() public {
-        bytes memory code = Geas.compile("lib/sys-asm/src/withdrawals/main.eas");
-
-        vm.etch(Withdrawals.SYSTEM_CONTRACT, code);
+        vm.etch(
+            Withdrawals.SYSTEM_CONTRACT,
+            Geas.compile("lib/sys-asm/src/withdrawals/main.eas")
+        );
     }
 
     function testFuzz_request(uint seed) public {

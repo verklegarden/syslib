@@ -27,15 +27,15 @@ library ExecutionHashes {
     address internal constant SYSTEM_CONTRACT =
         0x000000000000000000000000000000000000cafE;
 
-    /// @dev Reads the execution hash of block `number`.
+    /// @dev Returns the execution hash of block `number`.
     function tryGet(uint number) internal view returns (bytes32, bool) {
         if (number >= block.number) {
             return (0, false);
         }
 
-        //if (number >= block.number - 256) {
-        //    return (blockhash(number), true);
-        //}
+        if (number >= block.number - 1 - 256) {
+            return (blockhash(number), true);
+        }
 
         bool ok;
         bytes memory data;
@@ -48,7 +48,7 @@ library ExecutionHashes {
         return (abi.decode(data, (bytes32)), true);
     }
 
-    /// @dev Reads the execution hash of block `number`.
+    /// @dev Returns the execution hash of block `number`.
     ///
     /// @dev Reverts if:
     ///      - No execution hash found for given number

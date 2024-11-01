@@ -13,10 +13,10 @@ contract ConsolidationsTest is Test {
     uint constant INHIBITOR = type(uint).max;
 
     function setUp() public {
-        bytes memory code =
-            Geas.compile("lib/sys-asm/src/consolidations/main.eas");
-
-        vm.etch(Consolidations.SYSTEM_CONTRACT, code);
+        vm.etch(
+            Consolidations.SYSTEM_CONTRACT,
+            Geas.compile("lib/sys-asm/src/consolidations/main.eas")
+        );
     }
 
     function testFuzz_request(uint seed) public {
