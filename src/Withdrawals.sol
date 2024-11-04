@@ -108,7 +108,7 @@ library Withdrawals {
         //        i += 1;
         //      }
         //      return output / _DENOMINATOR;
-        //    }
+        //   }
         uint numerator = excess;
         uint result;
         assembly ("memory-safe") {
