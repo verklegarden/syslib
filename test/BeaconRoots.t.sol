@@ -18,8 +18,14 @@ contract BeaconRootsTest is Test {
         );
     }
 
-    function testFuzz_tryGet() public {
+    // -- Test: tryGet --
+
+    function testFuzz_tryGet(uint timestamp, uint seed) public {
         vm.skip(true);
+
+        vm.assume(timestamp != 0);
+
+        // Create valid query from seed.
     }
 
     function testFuzz_get() public {

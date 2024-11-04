@@ -4,7 +4,9 @@ pragma solidity ^0.8.16;
 import {Test} from "forge-std/Test.sol";
 import {console2 as console} from "forge-std/console2.sol";
 
-import {ExecutionHashes, NoExecutionHashFound} from "../src/ExecutionHashes.sol";
+import {
+    ExecutionHashes, NoExecutionHashFound
+} from "../src/ExecutionHashes.sol";
 
 import {Geas} from "../script/Geas.sol";
 
@@ -49,7 +51,9 @@ contract ExecutionHashesTest is Test {
         if (query >= number - 1 - 256) {
             want = blockhash(query);
         } else {
-            want = vm.load(ExecutionHashes.SYSTEM_CONTRACT, bytes32(query % BUFFER_SIZE));
+            want = vm.load(
+                ExecutionHashes.SYSTEM_CONTRACT, bytes32(query % BUFFER_SIZE)
+            );
         }
         assertEq(want, got);
     }
@@ -109,7 +113,9 @@ contract ExecutionHashesTest is Test {
         if (query >= number - 1 - 256) {
             want = blockhash(query);
         } else {
-            want = vm.load(ExecutionHashes.SYSTEM_CONTRACT, bytes32(query % BUFFER_SIZE));
+            want = vm.load(
+                ExecutionHashes.SYSTEM_CONTRACT, bytes32(query % BUFFER_SIZE)
+            );
         }
         assertEq(want, got);
     }
